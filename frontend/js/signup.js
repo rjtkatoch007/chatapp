@@ -7,6 +7,7 @@ signupForm.addEventListener("submit", async (event) => {
 
   const name = document.getElementById("name").value.trim();
   const email = document.getElementById("email").value.trim();
+  const phone = document.getElementById("phone").value.trim();
   const password = document.getElementById("password").value;
 
   message.className = "mt-3";
@@ -23,6 +24,7 @@ signupForm.addEventListener("submit", async (event) => {
       body: JSON.stringify({
         name,
         email,
+        phone,
         password
       })
     });

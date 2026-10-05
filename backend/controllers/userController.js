@@ -117,17 +117,18 @@ const login = async (req, res) => {
 
         const {
             email,
+            phone,
             password
         } = req.body;
 
 
         // Validate input
-        if (!email || !password) {
+        if (!email ||!phone || !password) {
 
             return res.status(400).json({
 
                 message:
-                    "Email and password are required"
+                    "Email or phone number and password are required"
 
             });
 
@@ -139,7 +140,8 @@ const login = async (req, res) => {
             await User.findOne({
 
                 where: {
-                    email, phone
+                    email,
+                    phone
                 }
 
             });
@@ -202,7 +204,9 @@ const login = async (req, res) => {
 
                 name: user.name,
 
-                email: user.email
+                email: user.email,
+
+                phone: user.phone
 
             }
 

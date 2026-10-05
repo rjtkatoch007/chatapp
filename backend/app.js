@@ -63,7 +63,7 @@ const startServer = async () => {
         );
 
 
-        await sequelize.sync();
+        await sequelize.sync({ alter: true });
 
         console.log(
             "Database tables are ready"

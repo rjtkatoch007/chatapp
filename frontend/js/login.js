@@ -11,6 +11,7 @@ loginForm.addEventListener("submit", async (event) => {
 
 
     const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
 
     const password = document.getElementById("password").value;
 
@@ -18,6 +19,7 @@ loginForm.addEventListener("submit", async (event) => {
     // Object that will be sent to backend
     const loginData = {
         email,
+        phone,
         password
     };
 
@@ -70,8 +72,7 @@ loginForm.addEventListener("submit", async (event) => {
             JSON.stringify(data.user)
         );
 
-        window.location.href =
-            "./expense.html";
+        //window.location.href = "./expense.html";
 
 
         message.className =
