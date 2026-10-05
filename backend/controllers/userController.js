@@ -10,15 +10,16 @@ const signup = async (req, res) => {
         const {
             name,
             email,
+            phone,
             password
         } = req.body;
 
 
-        if (!name || !email || !password) {
+        if (!name || !email || !phone || !password) {
 
             return res.status(400).json({
                 message:
-                    "Name, email and password are required"
+                    "Name, email, phone and password are required"
             });
 
         }
@@ -63,6 +64,8 @@ const signup = async (req, res) => {
 
                 email,
 
+                phone,
+
                 password: hashedPassword
 
             });
@@ -79,7 +82,9 @@ const signup = async (req, res) => {
 
                 name: user.name,
 
-                email: user.email
+                email: user.email,
+
+                phone: user.phone
 
             }
 
@@ -134,7 +139,7 @@ const login = async (req, res) => {
             await User.findOne({
 
                 where: {
-                    email
+                    email, phone
                 }
 
             });
